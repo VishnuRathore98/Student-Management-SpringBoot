@@ -7,7 +7,7 @@ public class Student {
 
     private int rollNumber;
     private String name;
-    private double marks;
+    private int marks;
 
     public int getRollNumber() {
         return rollNumber;
@@ -25,11 +25,11 @@ public class Student {
         this.name = name;
     }
 
-    public double getMarks() {
+    public int getMarks() {
         return marks;
     }
 
-    public void setMarks(double marks) {
+    public void setMarks(int marks) {
         this.marks = marks;
     }
 
