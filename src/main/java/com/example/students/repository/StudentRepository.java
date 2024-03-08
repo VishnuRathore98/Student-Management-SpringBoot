@@ -25,7 +25,7 @@ public class StudentRepository {
     }
 
     public void save(Student student){
-        String sqlInsertQuery="INSERT INTO student (rollNumber, studentName, marks) VALUES(?, ?, ?)";
+        String sqlInsertQuery="INSERT INTO students (sid, sname, marks) VALUES(?, ?, ?)";
 
         int rows = jdbcTemplate.update(sqlInsertQuery, student.getRollNumber(), student.getName(), student.getMarks());
         System.out.println(rows+" row affected...");
@@ -55,7 +55,7 @@ public class StudentRepository {
 
 public List<Student> findAll(){
 
-    String sqlSelectQuery = "SELECT * FROM student";
+    String sqlSelectQuery = "SELECT * FROM students";
 
 //    Lambda expression
 /*
@@ -72,8 +72,8 @@ public List<Student> findAll(){
 //  Inline lambda expression
     return jdbcTemplate.query(sqlSelectQuery, (ResultSet rs, int rowNum) -> {
         Student student = new Student();
-        student.setRollNumber(rs.getInt("rollNumber"));
-        student.setName(rs.getString("studentName"));
+        student.setRollNumber(rs.getInt("sid"));
+        student.setName(rs.getString("sname"));
         student.setMarks(rs.getInt("marks"));
 
         return student;
